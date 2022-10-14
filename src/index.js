@@ -1,5 +1,3 @@
-import rain from './asserts/rain.gif';
-
 const domManip = (() => {
    
     const resetButton = document.querySelector('#reset');
