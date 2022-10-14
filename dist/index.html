@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../src/style.css">
+    <title>Weather-app</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">WEATHER-APP</div>
+            <div class="form">
+                    <input type="text" name="city" id="city">
+                    <button id="searchButton">Search</button>
+                    <button type="reset" id="reset">Clear</button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="search-result" id="searchResult">
+                <h3 id="cityName"></h3>
+                <p id="main"></p>
+                <p id="description"></p>
+                <p id="temperature"></p>                
+                <p id="humidity"></p>
+                <p id="wind"></p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Powered by meme123</p>
+            <p><strong>KwenTIC</strong> &copy; 2020</p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
