@@ -57,6 +57,11 @@
     background-color: #697798;
     color: #fff;
 }
+.error{
+    color: red;
+    font-style: italic;
+    font-size: 16px;
+}
 
 .main{
    display: flex;
@@ -80,7 +85,7 @@
     opacity: .6;
 }
 .search-result > h3{
-    font-size: 3rem;
+    font-size: 2rem;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
@@ -104,4 +109,17 @@
     color: #fff;
     padding: 10px;
     font-size: 1.1rem;
+}
+@media (max-width: 800px){
+    .header{
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        flex-direction: column;
+    }
+    .header > .logo{
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
 }
