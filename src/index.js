@@ -1,3 +1,7 @@
+const error = document.querySelector('.error');
+const bg = document.querySelector('.imageBg')
+const container = document.querySelector('.container')
+
 const domManip = (() => {
     const searchButton = document.querySelector('#searchButton');
     searchButton.addEventListener('click', fetchCurrentWeather);
@@ -7,12 +11,13 @@ async function fetchCurrentWeather(){
     
     try{
         const searchCity = document.querySelector('#city').value
-        if(searchCity === ""){
-            alert("Enter a city please!");
+        if(searchCity === ""){           
+           error.textContent = "Enter a city please!"
         }else{        
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&units=metric&appid=346047954f4507e32d56d138ad03a0f3`);
+          
             const currentData = await response.json();
-            
+             console.log(currentData)
             const currentWeather = {
                 mainWeather: currentData.weather[0].main,
                 place: currentData.name,
@@ -23,6 +28,13 @@ async function fetchCurrentWeather(){
             };
            
             if(currentWeather){
+
+                const giphy = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=x49YqDkb6lUJZ6zMzNjnCr8iIvqz1Ase&s=${currentWeather.mainWeather}`)
+                const currentImage = await giphy.json();
+                console.log(currentImage) 
+
+                container.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(${currentImage.data.images.original.url})`
+
                 const content = document.querySelector('.search-result');
                 content.style.display = "flex";
                 const cityName = document.querySelector('#cityName');
@@ -38,6 +50,7 @@ async function fetchCurrentWeather(){
                 const main = document.querySelector('#main');
                 main.textContent = `Main: ${currentWeather.mainWeather}`;
             }
+            error.textContent = ""
             document.querySelector('#city').value = "";
         }
     }catch(e){
